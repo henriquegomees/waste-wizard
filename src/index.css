@@ -11,3 +11,19 @@ body, html {
   list-style: none;
   text-decoration: none;
 }
+
+:root{
+  --main-green: #23995c;
+  --main-blue: #1d5895;
+}
+div#app header{
+  width: 100%;
+  padding: 35px 0;
+  text-align: center;
+  background-image: linear-gradient(to left, var(--main-green), var(--main-blue));
+}
+
+div#app header h1{
+  color: #fff;
+  font-size: 45px;
+}
