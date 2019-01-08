@@ -4,11 +4,14 @@ ul#material-list{
 }
 
 ul#material-list li.row{
-    padding-top: 20px;
     font-size: 1.2em;
     width: 100%;
     display: flex;
     flex-direction: row
+}
+
+ul#material-list li.row:not(:first-child){
+    padding-top: 35px;
 }
 
 ul#material-list li p:first-child{

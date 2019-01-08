@@ -6,11 +6,18 @@ import SearchIcon from '@material-ui/icons/Search'
 
 import './form.css'
 
-import { searchResults } from 'store/actions'
+import { searchResults, clearResults } from 'store/actions'
 
 class SearchForm extends Component {
     state = {
         input: 'takeout'
+    }
+
+    _handleInputChange(e){
+        this.setState({ input: e.target.value })
+        if(e.target.value === ''){
+            this.props.clearResults()
+        }
     }
 
     _handleSubmit(e){
@@ -39,7 +46,7 @@ class SearchForm extends Component {
                     type="text" 
                     placeholder="Search"
                     value={this.state.input}
-                    onChange={e => this.setState({ input: e.target.value })}
+                    onChange={this._handleInputChange.bind(this)}
                 />
 
                 <button type="submit">
@@ -51,5 +58,5 @@ class SearchForm extends Component {
 }
 
 const mapStateToProps    = state    => ({ wasteMaterials: state.waste.materials })
-const mapDispatchToProps = dispatch => bindActionCreators({ searchResults }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ searchResults, clearResults }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)

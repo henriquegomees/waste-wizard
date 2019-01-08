@@ -23,8 +23,7 @@ const searchResults = async results => {
             description: material.body,
             isFav
         }
-
-        materials.push(infos)
+        return materials.push(infos)
     })
 
     return dispatch => dispatch({
@@ -33,7 +32,15 @@ const searchResults = async results => {
     })
 }
 
+const clearResults = () => {
+    return dispatch => dispatch({
+        type: 'CLEAR_RESULTS',
+        payload: []
+    })
+}
+
 export {
     fetchData,
-    searchResults
+    searchResults,
+    clearResults
 }
