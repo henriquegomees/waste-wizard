@@ -9,3 +9,7 @@ section#favourites-container header h2{
     margin-bottom: 20px;
     color: var(--main-green);
 }
+
+section#favourites-container table tr td #star-icon{
+    color: var(--main-green)
+}
