@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Table from 'components/Table'
 
@@ -9,11 +10,12 @@ class Results extends Component {
     render(){
         return(
             <section id="results-container">
-                <Table />
+                <Table materials={this.props.results}/>
             </section>
         )
     }
 
 }
 
-export default Results
+const mapStateToProps = state => ({ results: state.waste.searchResults })
+export default connect(mapStateToProps)(Results)

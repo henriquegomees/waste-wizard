@@ -12,7 +12,7 @@ table tbody tr td:first-child{
     width: 45%;
     cursor: pointer;
     position: relative;
-    padding: 0 15px 0 35px;
+    /* padding-left: 35px; */
 }
 
 table tbody tr td:last-child{

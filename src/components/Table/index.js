@@ -3,17 +3,22 @@ import React from 'react'
 
 import TableItem from './Table-item'
 
-
 import './table.css'
 
 const Table = props => {
     return (
         <table>
             <tbody>
-               <TableItem 
-                    name="Name name name name name name"
-                    description="Description Description Description Description Description"
-               />
+               {
+                   !props.materials
+                    ? <tr><td>Empty</td></tr>
+                    : props.materials.map((material, index) => 
+                        <TableItem 
+                            key={index}
+                            name={material.title}
+                            description={material.description}
+                        />)
+               }
             </tbody>
         </table>
     )
