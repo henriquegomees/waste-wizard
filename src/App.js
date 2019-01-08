@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import SearchForm from 'containers/SearchForm'
+
 import './index.css'
 
 class App extends Component {
@@ -10,6 +12,10 @@ class App extends Component {
         <header>
           <h1>Toronto Waste Lookup</h1>
         </header>
+
+        <div className="container">
+          <SearchForm />
+        </div>
 
       </div>
     )
