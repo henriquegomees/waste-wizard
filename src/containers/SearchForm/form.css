@@ -1,7 +1,7 @@
 
 form#search-form{
     display: flex;
-    margin-top: 20px;
+    margin: 20px 0;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -10,7 +10,7 @@ form#search-form input[type=text]{
     border: 1px solid #c3c3c3;
     font-size: 1.4em;
     padding-left: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     width: calc(100% - 75px);
 }
 
@@ -20,7 +20,7 @@ form#search-form button[type=submit]{
     color: #fff;
     font-size: 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 2px;
     transition: all ease-in-out .2s;
     background-color: var(--main-green);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);

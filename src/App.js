@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import SearchForm from 'containers/SearchForm'
+import Results from 'containers/Results'
 
 import './index.css'
 
@@ -15,6 +16,8 @@ class App extends Component {
 
         <div className="container">
           <SearchForm />
+
+          <Results />
         </div>
 
       </div>
