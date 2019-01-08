@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import SearchForm from 'containers/SearchForm'
 import Results from 'containers/Results'
+import Favourites from 'containers/Favourites'
 
 import './index.css'
 
@@ -19,6 +20,8 @@ class App extends Component {
 
           <Results />
         </div>
+
+        <Favourites />
 
       </div>
     )

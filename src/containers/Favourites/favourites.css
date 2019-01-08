@@ -1,0 +1,11 @@
+
+section#favourites-container{
+    background-color: #f7fefa;
+    padding: 20px 0;
+}
+
+section#favourites-container header h2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--main-green);
+}

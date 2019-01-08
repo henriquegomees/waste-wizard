@@ -3,11 +3,14 @@ import React, { Component } from 'react'
 
 import Table from 'components/Table'
 
+import './results.css'
 class Results extends Component {
     
     render(){
         return(
-            <Table />
+            <section id="results-container">
+                <Table />
+            </section>
         )
     }
 
