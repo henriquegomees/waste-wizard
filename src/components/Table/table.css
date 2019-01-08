@@ -1,25 +1,28 @@
 
-table{
+ul#material-list{
     width: 100%;
 }
 
-table tbody tr{
+ul#material-list li.row{
     padding-top: 20px;
-    font-size: 1.2em
+    font-size: 1.2em;
+    width: 100%;
+    display: flex;
+    flex-direction: row
 }
 
-table tbody tr td:first-child{
+ul#material-list li p:first-child{
     width: 45%;
     cursor: pointer;
     position: relative;
-    /* padding-left: 35px; */
+    padding-left: 35px;
 }
 
-table tbody tr td:last-child{
+ul#material-list li p:last-child{
     width: 55%;
 }
 
-table tbody tr td #star-icon{
+ul#material-list li p #star-icon{
     position: absolute;
     top: 0;
     left: 0;
@@ -28,6 +31,6 @@ table tbody tr td #star-icon{
     color: #aaa
 }
 
-table tbody tr td #star-icon.favorited{
+ul#material-list li p #star-icon.favorited{
     color: var(--main-green)
 }

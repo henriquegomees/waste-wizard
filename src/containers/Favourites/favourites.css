@@ -10,6 +10,6 @@ section#favourites-container header h2{
     color: var(--main-green);
 }
 
-section#favourites-container table tr td #star-icon{
+section#favourites-container ul li p #star-icon{
     color: var(--main-green)
 }

@@ -4,14 +4,14 @@ import StarIcon from '@material-ui/icons/Star'
 
 const TableItem = props => {
     return (
-        <tr>
-            <td>
-                <StarIcon id="star-icon" className="" />{props.name} 
-            </td>
-            <td>
+        <li className="row">
+            <p className="name">
+                <StarIcon id="star-icon" className="" />{props.name}
+            </p>
+            <p>
                 {props.description}
-            </td>
-        </tr>
+            </p>
+        </li>
     )
 }
 
