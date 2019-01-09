@@ -1,7 +1,12 @@
 
 import React, { Component } from 'react'
 
-import Table from 'components/Table'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import Item from 'components/MaterialItem'
+
+import { addFavourite } from 'store/actions'
 
 import './favourites.css'
 
@@ -15,7 +20,17 @@ class Favourites extends Component {
                         <h2>Favourites</h2>
                     </header>
 
-                    <Table />
+                    <ul id="material-list">
+                    {
+                        this.props.favourites.map((material, index) => 
+                        <Item 
+                            key={index}
+                            name={material.title}
+                            onClick={() => this.props.addFavourite(material)}
+                            description={material.description}
+                        />)
+                    }
+                </ul>
                 </div>
             </section>
         )
@@ -23,4 +38,6 @@ class Favourites extends Component {
 
 }
 
-export default Favourites
+const mapStateToProps    = state    => ({ favourites: state.waste.favourites })
+const mapDispatchToProps = dispatch => bindActionCreators({ addFavourite }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(Favourites)

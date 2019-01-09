@@ -39,8 +39,16 @@ const clearResults = () => {
     })
 }
 
+const addFavourite = material => {
+    return dispatch => dispatch({
+        type: 'ADD_FAVOURITE',
+        material
+    })
+}
+
 export {
     fetchData,
     searchResults,
-    clearResults
+    clearResults,
+    addFavourite
 }
