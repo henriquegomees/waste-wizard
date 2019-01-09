@@ -1,5 +1,6 @@
 
 import axios from 'axios'
+import FavouritesService from 'services/Favourites'
 
 const fetchData = async () => {
     const request = await axios.get(process.env.REACT_APP_API_URL)
@@ -11,7 +12,7 @@ const fetchData = async () => {
 }
 
 const fetchFavourites = async () => {
-    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
+    const favourites = await FavouritesService.get()
     return dispatch => dispatch({
         type: 'FETCH_FAVOURITES',
         favourites
@@ -19,7 +20,7 @@ const fetchFavourites = async () => {
 }
 
 const searchResults = async results => {
-    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
+    const favourites = await FavouritesService.get()
     let isFav, infos
     let materials = []
     results.map( (material, index) => {
@@ -48,9 +49,9 @@ const clearResults = () => {
 }
 
 const addFavourite = async material => {
-    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
+    const favourites = await FavouritesService.get()
     favourites.push(material)
-    await localStorage.setItem('favouritesMaterials', JSON.stringify(favourites))
+    await FavouritesService.set(favourites)
 
     return dispatch => dispatch({
         type: 'ADD_FAVOURITE',
@@ -59,10 +60,10 @@ const addFavourite = async material => {
 }
 
 const removeFavourite = async ( material, index ) => {
-    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials'))
+    const favourites = await FavouritesService.get()
     favourites.splice( index, 1 )
 
-    await localStorage.setItem('favouritesMaterials', JSON.stringify(favourites))
+    await FavouritesService.set(favourites)
 
     return dispatch => dispatch({
         type: 'REMOVE_FAVOURITE', 
