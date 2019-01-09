@@ -8,10 +8,11 @@ import Favourites from 'containers/Favourites'
 
 import './index.css'
 
-import { fetchData } from 'store/actions'
+import { fetchData, fetchFavourites } from 'store/actions'
 class App extends Component {
   componentDidMount(){
     this.props.fetchData()
+    this.props.fetchFavourites()
   }
 
   render(){
@@ -28,12 +29,17 @@ class App extends Component {
           <Results />
         </div>
 
-        <Favourites />
+        {
+          this.props.favourites.length > 0
+          ? <Favourites />
+          : false
+        }
 
       </div>
     )
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchData }, dispatch)
-export default connect(null, mapDispatchToProps)(App)
+const mapStateToProps    = state    => ({ favourites: state.waste.favourites }) 
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchData, fetchFavourites }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

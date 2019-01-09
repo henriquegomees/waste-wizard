@@ -16,7 +16,7 @@ const TableItem = props => {
         <li className="row">
             <p className="name">
                 <button className="star-btn" onClick={props.onClick}>
-                    <StarIcon id="star-icon" className="" />
+                    <StarIcon id="star-icon" className={props.isFav ? 'favorited' : ''} />
                 </button>
                 {props.name}
             </p>

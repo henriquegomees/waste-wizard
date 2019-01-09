@@ -10,12 +10,20 @@ const fetchData = async () => {
     })
 }
 
+const fetchFavourites = async () => {
+    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
+    return dispatch => dispatch({
+        type: 'FETCH_FAVOURITES',
+        favourites
+    })
+}
+
 const searchResults = async results => {
     const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
     let isFav, infos
     let materials = []
     results.map( (material, index) => {
-        favourites.find( fav => fav.id === material.id ) ? isFav = true : isFav = false
+        favourites.find( fav => fav.title === material.title ) ? isFav = true : isFav = false
 
         infos = {
             id: material.id || index,
@@ -39,7 +47,11 @@ const clearResults = () => {
     })
 }
 
-const addFavourite = material => {
+const addFavourite = async material => {
+    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials')) || []
+    favourites.push(material)
+    await localStorage.setItem('favouritesMaterials', JSON.stringify(favourites))
+
     return dispatch => dispatch({
         type: 'ADD_FAVOURITE',
         material
@@ -48,6 +60,7 @@ const addFavourite = material => {
 
 export {
     fetchData,
+    fetchFavourites,
     searchResults,
     clearResults,
     addFavourite

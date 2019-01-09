@@ -21,6 +21,7 @@ class Results extends Component {
                             <Item 
                                 key={index}
                                 name={material.title}
+                                isFav={material.isFav}
                                 onClick={() => this.props.addFavourite(material)}
                                 description={material.description}
                             />)
