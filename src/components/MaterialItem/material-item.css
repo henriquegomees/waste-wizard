@@ -45,3 +45,7 @@ ul#material-list li p button.star-btn{
 ul#material-list li p button.star-btn:hover #star-icon{
     color: var(--main-green);
 }
+
+ul#material-list li p button.star-btn:hover #star-icon.favorited{
+    color: #aaa
+}

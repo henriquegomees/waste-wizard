@@ -28,6 +28,7 @@ class Favourites extends Component {
                             name={material.title}
                             onClick={() => this.props.removeFavourite(material, index)}
                             description={material.description}
+                            title="Remove from favourites"
                         />)
                     }
                 </ul>

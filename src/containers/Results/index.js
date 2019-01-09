@@ -30,6 +30,7 @@ class Results extends Component {
                                 isFav={material.isFav}
                                 onClick={() => this._handleClick(material)}
                                 description={material.description}
+                                title={material.isFav === true ? 'Remove from favourites' : 'Add to favourites'}
                             />)
                     }
                 </ul>
