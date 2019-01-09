@@ -36,7 +36,6 @@ export default ( state = INITIAL_STATE, action ) => {
 
             return { 
                 ...state,
-                favourites: action.favourites,
                 searchResults: newArr.map(material =>
                     material.title === action.material.title 
                     ? { ...material, isFav: false } 

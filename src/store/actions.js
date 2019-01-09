@@ -65,11 +65,13 @@ const removeFavourite = async ( material, index ) => {
 
     await FavouritesService.set(favourites)
 
-    return dispatch => dispatch({
-        type: 'REMOVE_FAVOURITE', 
-        favourites,
-        material
-    })
+    return dispatch => {
+        dispatch(fetchFavourites())
+        dispatch({
+            type: 'REMOVE_FAVOURITE', 
+            material
+        })
+    }
 }
 
 export {

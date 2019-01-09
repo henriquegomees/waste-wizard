@@ -5,10 +5,16 @@ import { bindActionCreators } from 'redux'
 
 import Item from 'components/MaterialItem'
 
-import { addFavourite } from 'store/actions'
+import { addFavourite, removeFavourite } from 'store/actions'
 
 import './results.css'
 class Results extends Component {
+
+    _handleClick(material){
+        material.isFav === true
+        ? this.props.removeFavourite(material)
+        : this.props.addFavourite(material)
+    }
     
     render(){
         return(
@@ -22,7 +28,7 @@ class Results extends Component {
                                 key={index}
                                 name={material.title}
                                 isFav={material.isFav}
-                                onClick={() => this.props.addFavourite(material)}
+                                onClick={() => this._handleClick(material)}
                                 description={material.description}
                             />)
                     }
@@ -34,5 +40,5 @@ class Results extends Component {
 }
 
 const mapStateToProps    = state    => ({ results: state.waste.searchResults })
-const mapDispatchToProps = dispatch => bindActionCreators({ addFavourite }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ addFavourite, removeFavourite }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Results)
