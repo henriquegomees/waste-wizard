@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import SearchForm from 'containers/SearchForm'
 import Results from 'containers/Results'
@@ -16,6 +17,13 @@ class App extends Component {
   }
 
   render(){
+    if( this.props.materials.length === 0 ){
+      return(
+        <div className="progress-wrapper">
+          <CircularProgress />
+        </div>
+      )
+    }
     return(
       <div id="app">
 
@@ -40,6 +48,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps    = state    => ({ favourites: state.waste.favourites }) 
+const mapStateToProps    = state    => ({ favourites: state.waste.favourites, materials: state.waste.materials }) 
 const mapDispatchToProps = dispatch => bindActionCreators({ fetchData, fetchFavourites }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(App)

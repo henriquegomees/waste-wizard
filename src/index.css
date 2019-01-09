@@ -34,3 +34,11 @@ div#app header h1{
   color: #fff;
   font-size: 45px;
 }
+
+div.progress-wrapper{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
