@@ -16,7 +16,6 @@ ul#material-list li.row:not(:first-child){
 
 ul#material-list li p:first-child{
     width: 45%;
-    cursor: pointer;
     position: relative;
     padding-left: 35px;
 }
@@ -26,14 +25,23 @@ ul#material-list li p:last-child{
 }
 
 ul#material-list li p #star-icon{
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    font-size: 1.4em;
-    color: #aaa
+    color: #aaa;
+    font-size: 1.9em;
 }
 
 ul#material-list li p #star-icon.favorited{
     color: var(--main-green)
+}
+
+ul#material-list li p button.star-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+ul#material-list li p button.star-btn:hover #star-icon{
+    color: var(--main-green);
 }
