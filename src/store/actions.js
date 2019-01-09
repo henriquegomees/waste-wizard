@@ -58,10 +58,24 @@ const addFavourite = async material => {
     })
 }
 
+const removeFavourite = async ( material, index ) => {
+    const favourites = await JSON.parse(localStorage.getItem('favouritesMaterials'))
+    favourites.splice( index, 1 )
+
+    await localStorage.setItem('favouritesMaterials', JSON.stringify(favourites))
+
+    return dispatch => dispatch({
+        type: 'REMOVE_FAVOURITE', 
+        favourites,
+        material
+    })
+}
+
 export {
     fetchData,
     fetchFavourites,
     searchResults,
     clearResults,
-    addFavourite
+    addFavourite,
+    removeFavourite
 }

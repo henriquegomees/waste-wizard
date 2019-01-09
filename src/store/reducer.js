@@ -19,9 +19,29 @@ export default ( state = INITIAL_STATE, action ) => {
 
         case 'ADD_FAVOURITE' :
             let favourites = state.favourites.slice()
+            let results    = state.searchResults.slice() 
             favourites.push(action.material)
 
-            return { ...state, favourites }
+            return { 
+                ...state,
+                favourites,
+                searchResults: results.map(material =>
+                    material.title === action.material.title 
+                    ? { ...material, isFav: true } 
+                    : material) 
+            }
+
+        case 'REMOVE_FAVOURITE' :
+            let newArr = state.searchResults.slice() 
+
+            return { 
+                ...state,
+                favourites: action.favourites,
+                searchResults: newArr.map(material =>
+                    material.title === action.material.title 
+                    ? { ...material, isFav: false } 
+                    : material) 
+            }
 
         default :
             return state

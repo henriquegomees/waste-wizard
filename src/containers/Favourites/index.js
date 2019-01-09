@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import Item from 'components/MaterialItem'
 
-import { addFavourite } from 'store/actions'
+import { removeFavourite } from 'store/actions'
 
 import './favourites.css'
 
@@ -26,7 +26,7 @@ class Favourites extends Component {
                         <Item 
                             key={index}
                             name={material.title}
-                            onClick={() => this.props.addFavourite(material)}
+                            onClick={() => this.props.removeFavourite(material, index)}
                             description={material.description}
                         />)
                     }
@@ -39,5 +39,5 @@ class Favourites extends Component {
 }
 
 const mapStateToProps    = state    => ({ favourites: state.waste.favourites })
-const mapDispatchToProps = dispatch => bindActionCreators({ addFavourite }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ removeFavourite }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Favourites)
