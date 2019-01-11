@@ -1,51 +1,76 @@
 
-ul#material-list{
+ul.material-list{
     width: 100%;
 }
 
-ul#material-list li.row{
-    font-size: 1.2em;
+ul.material-list li.row{
+    font-size: 1.1em;
     width: 100%;
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-ul#material-list li.row:not(:first-child){
-    padding-top: 35px;
+ul.material-list li.row:not(:last-child){
+    margin-bottom: 50px;
 }
 
-ul#material-list li p:first-child{
-    width: 45%;
+div.name{
+    width: 42%;
     position: relative;
-    padding-left: 35px;
+    padding-left: 35px
 }
 
-ul#material-list li p:last-child{
-    width: 55%;
+div.name h2{
+    font-size: 1.1em;
+    font-weight: normal
 }
 
-ul#material-list li p #star-icon{
+button #star-icon{
     color: #aaa;
     font-size: 1.9em;
 }
 
-ul#material-list li p #star-icon.favorited{
+button #star-icon.favorited{
     color: var(--main-green)
 }
 
-ul#material-list li p button.star-btn{
-    position: absolute;
+button.star-btn{
     top: 0;
     left: 0;
     border: none;
     cursor: pointer;
+    position: absolute;
     background-color: transparent;
 }
 
-ul#material-list li p button.star-btn:hover #star-icon{
+button.star-btn:hover #star-icon{
     color: var(--main-green);
 }
 
-ul#material-list li p button.star-btn:hover #star-icon.favorited{
+button.star-btn:hover #star-icon.favorited{
     color: #aaa
+}
+
+div.description{
+    width: 55%;
+}
+
+div.description ul li{
+    position: relative;
+    padding-left: 15px;
+}
+
+div.description ul li:not(:last-child){
+    padding-bottom: 20px
+}
+
+div.description ul li:before{
+    content: "• ";
+    position: absolute;
+    left: 0;
+}
+
+div.description a:hover{
+    text-decoration: underline
 }

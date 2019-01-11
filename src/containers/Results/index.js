@@ -19,7 +19,7 @@ class Results extends Component {
     render(){
         return(
             <section id="results-container">
-                 <ul id="material-list">
+                 <ul className="material-list">
                     {
                         !this.props.results
                         ? <li>Empty</li>

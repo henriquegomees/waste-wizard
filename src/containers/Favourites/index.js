@@ -20,18 +20,18 @@ class Favourites extends Component {
                         <h2>Favourites</h2>
                     </header>
 
-                    <ul id="material-list">
-                    {
-                        this.props.favourites.map((material, index) => 
-                        <Item 
-                            key={index}
-                            name={material.title}
-                            onClick={() => this.props.removeFavourite(material, index)}
-                            description={material.description}
-                            title="Remove from favourites"
-                        />)
-                    }
-                </ul>
+                    <ul className="material-list">
+                        {
+                            this.props.favourites.map((material, index) => 
+                            <Item 
+                                key={index}
+                                name={material.title}
+                                onClick={() => this.props.removeFavourite(material, index)}
+                                description={material.description}
+                                title="Remove from favourites"
+                            />)
+                        }
+                    </ul>
                 </div>
             </section>
         )

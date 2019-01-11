@@ -1,34 +1,44 @@
 
-import React from 'react'
+import React, { Component } from 'react'
 import StarIcon from '@material-ui/icons/Star'
 
 import './material-item.css'
+class MaterialItem extends Component {
+    constructor(props){
+        super(props)
+        this.item = React.createRef()
+    }
 
-const parseStrToHTML = (str) => {
-    var parser = new DOMParser()
-    var doc    = parser.parseFromString(str, "text/html")
+    _parseStrToHTML(str) {
+        let txt = document.createElement( 'textarea' )
+        txt.innerHTML = str
+        return txt.value
+    }
 
-    return doc.childNodes[0].innerText
+    componentDidMount(){
+        const node    = this.item.current
+        const htmlStr = this._parseStrToHTML(this.props.description)
+        node.insertAdjacentHTML('beforeend', htmlStr)
+    }
+
+    render(){
+        return (
+            <li className="row">
+                <div className="name">
+                    <button 
+                        className="star-btn" 
+                        onClick={this.props.onClick}
+                        title={this.props.title}
+                    >
+                        <StarIcon id="star-icon" className={this.props.isFav ? 'favorited' : ''} />
+                    </button>
+                    <h2>{this.props.name}</h2>
+                </div>
+
+                <div className="description" ref={this.item}></div>
+            </li>
+        )
+    }
 }
 
-const TableItem = props => {
-    return (
-        <li className="row">
-            <p className="name">
-                <button 
-                    className="star-btn" 
-                    onClick={props.onClick}
-                    title={props.title}
-                >
-                    <StarIcon id="star-icon" className={props.isFav ? 'favorited' : ''} />
-                </button>
-                {props.name}
-            </p>
-            <p className="description">
-                {parseStrToHTML(props.description)}
-            </p>
-        </li>
-    )
-}
-
-export default TableItem
+export default MaterialItem

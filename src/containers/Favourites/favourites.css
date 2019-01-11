@@ -1,7 +1,7 @@
 
 section#favourites-container{
     background-color: #f7fefa;
-    padding: 20px 0;
+    padding: 30px 0;
 }
 
 section#favourites-container header h2{
@@ -10,10 +10,10 @@ section#favourites-container header h2{
     color: var(--main-green);
 }
 
-section#favourites-container ul li p #star-icon{
+section#favourites-container #star-icon{
     color: var(--main-green)
 }
 
-section#favourites-container ul#material-list li p button.star-btn:hover #star-icon{
+section#favourites-container button.star-btn:hover #star-icon{
     color: #aaa;
 }
