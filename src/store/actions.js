@@ -61,8 +61,7 @@ const addFavourite = async material => {
 
 const removeFavourite = async material => {
     const favourites = await FavouritesService.get()
-    
-    const index = favourites.findIndex( fav => fav.title === material.title )
+    const index      = favourites.findIndex( fav => fav.title === material.title )
 
     favourites.splice( index, 1 )
 

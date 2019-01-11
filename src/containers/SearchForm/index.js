@@ -10,12 +10,13 @@ import { searchResults, clearResults } from 'store/actions'
 
 class SearchForm extends Component {
     state = {
-        input: 'takeout'
+        input: ''
     }
 
     _handleInputChange(e){
         this.setState({ input: e.target.value })
         if(e.target.value === ''){
+            //Clear the search results list
             this.props.clearResults()
         }
     }
@@ -33,9 +34,9 @@ class SearchForm extends Component {
         let match   = 0
         wasteMaterials.map(material => {
             match = material.keywords.search( input.toLowerCase() )
-            if( match !== -1 ){ materials.push( material ) }
+            if( match === -1 ){ return false }
+            return materials.push( material )
         })
-        
         materials.length > 0 ? this.props.searchResults( materials ) : alert('Material not found.')
     }
 
