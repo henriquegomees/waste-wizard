@@ -21,17 +21,15 @@ class Results extends Component {
             <section id="results-container">
                  <ul className="material-list">
                     {
-                        !this.props.results
-                        ? <li>Empty</li>
-                        : this.props.results.map((material, index) => 
-                            <Item 
-                                key={index}
-                                name={material.title}
-                                isFav={material.isFav}
-                                onClick={() => this._handleClick(material)}
-                                description={material.description}
-                                title={material.isFav === true ? 'Remove from favourites' : 'Add to favourites'}
-                            />)
+                        this.props.results.map((material, index) => 
+                        <Item 
+                            key={index}
+                            name={material.title}
+                            isFav={material.isFav}
+                            onClick={() => this._handleClick(material)}
+                            description={material.description}
+                            title={material.isFav === true ? 'Remove from favourites' : 'Add to favourites'}
+                        />)
                     }
                 </ul>
             </section>

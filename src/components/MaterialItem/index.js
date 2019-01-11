@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import StarIcon from '@material-ui/icons/Star'
 
 import './material-item.css'
+
 class MaterialItem extends Component {
     constructor(props){
         super(props)
