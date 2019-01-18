@@ -1,6 +1,6 @@
 # Toronto Waste Wizard
 
-Search for waste items using the [Toronto Waste Wizard Lookup](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/#5ed40494-a290-7807-d5da-09ab6a56fca2).
+Find out what waste items go where using the [Toronto's Waste Wizard Lookup](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/#5ed40494-a290-7807-d5da-09ab6a56fca2).
 
 You can perform a search and save materials to a favourites list.
 
