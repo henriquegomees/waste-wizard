@@ -14,7 +14,7 @@ yarn && yarn start
 
 ## Hosted version
 
-Check out [this link](https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/#5ed40494-a290-7807-d5da-09ab6a56fca2) to see the hosted version.
+Check out [this link](https://henriquegomees.github.io/waste-wizard/) to see the hosted version.
 
 ## Stack
 
